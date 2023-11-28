@@ -9,7 +9,7 @@ enum MODES {DEFAULT, JUMP, PUSH, SPEED}
 var mode: MODES = MODES.DEFAULT
 
 # Kasettien määrät
-var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 0, MODES.SPEED: 0}
+var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 0, MODES.SPEED: 1}
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -47,21 +47,28 @@ func _input(event):
 	if event.is_action_pressed("MODE_JUMP") && cartridges_dict[MODES.JUMP] > 0:
 		cartridges_dict[MODES.JUMP] = cartridges_dict[MODES.JUMP] - 1
 		changeMode(MODES.JUMP)
+	elif event.is_action_pressed("MODE_SPEED") && cartridges_dict[MODES.SPEED] > 0:
+		cartridges_dict[MODES.SPEED] = cartridges_dict[MODES.SPEED] - 1
+		changeMode(MODES.SPEED)
 
 func changeMode(mode: MODES):
 	match mode:
 		MODES.DEFAULT:
 			mode = MODES.DEFAULT
 			SPEED = 300.0
-			JUMP_VELOCITY = -800.0
+			JUMP_VELOCITY = -400.0
 		MODES.JUMP:
 			mode = MODES.JUMP
 			SPEED = 300.0
 			JUMP_VELOCITY = -800.0
+		MODES.SPEED:
+			mode = MODES.SPEED
+			SPEED = 600.0
+			JUMP_VELOCITY = -400.0
 		_:
 			mode = MODES.DEFAULT
-			var SPEED = 300.0
-			var JUMP_VELOCITY = -400.0
+			SPEED = 300.0
+			JUMP_VELOCITY = -400.0
 
 func addCartridge(mode: MODES):
 	cartridges_dict[mode] = cartridges_dict[mode] + 1
