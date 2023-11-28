@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc1ju7beuva6v"]
+[gd_scene load_steps=7 format=3 uid="uid://cc1ju7beuva6v"]
 
 [ext_resource type="Script" path="res://Levels/Level1.gd" id="1_fmkaf"]
 [ext_resource type="PackedScene" uid="uid://cwodsiytl05fq" path="res://Player/Player.tscn" id="1_hfe7p"]
 [ext_resource type="Texture2D" uid="uid://b6borv2gp1cn1" path="res://Assets/tilemap.png" id="2_eqhlw"]
+[ext_resource type="PackedScene" uid="uid://cq7x60hccgp6l" path="res://Objects/Cartridges/Cartridge.tscn" id="4_37cic"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5rnmx"]
 texture = ExtResource("2_eqhlw")
@@ -63,3 +64,6 @@ scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_vtbyb")
 format = 2
 layer_0/tile_data = PackedInt32Array(196608, 65536, 0, 262143, 65536, 0, 262142, 65536, 0, 262141, 65536, 0, 262140, 65536, 0, 262139, 65536, 0, 196609, 65536, 0, 196610, 65536, 0, 196611, 65536, 0, 196612, 65536, 0, 196613, 65536, 0, -7, 0, 1, 65529, 0, 1, 131065, 0, 1, 262138, 65536, 0, 262137, 0, 2, 196601, 0, 1, -65543, 0, 1, -131079, 0, 1, -196615, 0, 1, 65542, 0, 0, 65543, 65536, 0, 65544, 65536, 0, 131078, 0, 1, 196614, 0, 1, -65527, 65536, 0, -65526, 65536, 0, -262134, 65536, 0, -262133, 65536, 0, -262132, 65536, 0, 13, 65536, 0, 14, 65536, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0)
+
+[node name="Cartridge" parent="." instance=ExtResource("4_37cic")]
+position = Vector2(657, 212)

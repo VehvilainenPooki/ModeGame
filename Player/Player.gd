@@ -1,12 +1,15 @@
 extends CharacterBody2D
-
+class_name Player
 
 var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
 
+# Eri modet enumina
 enum MODES {DEFAULT, JUMP, PUSH, SPEED}
-
 var mode: MODES = MODES.DEFAULT
+
+# Kasettien määrät
+var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 0, MODES.SPEED: 0}
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -41,7 +44,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _input(event):
-	if event.is_action_pressed("MODE_JUMP"):
+	if event.is_action_pressed("MODE_JUMP") && cartridges_dict[MODES.JUMP] > 0:
+		cartridges_dict[MODES.JUMP] = cartridges_dict[MODES.JUMP] - 1
 		changeMode(MODES.JUMP)
 
 func changeMode(mode: MODES):
@@ -58,3 +62,6 @@ func changeMode(mode: MODES):
 			mode = MODES.DEFAULT
 			var SPEED = 300.0
 			var JUMP_VELOCITY = -400.0
+
+func addCartridge(mode: MODES):
+	cartridges_dict[mode] = cartridges_dict[mode] + 1
