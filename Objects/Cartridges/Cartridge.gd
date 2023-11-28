@@ -7,5 +7,5 @@ var mode: MODES = MODES.JUMP
 func _on_body_entered(body):
 	print(body)
 	if body is Player:
-		Player.addCatrdidge(mode)
+		body.addCatrdidge(mode)
 		queue_free()
