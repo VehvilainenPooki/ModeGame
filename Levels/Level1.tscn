@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc1ju7beuva6v"]
+[gd_scene load_steps=6 format=3 uid="uid://cc1ju7beuva6v"]
 
+[ext_resource type="Script" path="res://Levels/Level1.gd" id="1_fmkaf"]
 [ext_resource type="PackedScene" uid="uid://cwodsiytl05fq" path="res://Player/Player.tscn" id="1_hfe7p"]
 [ext_resource type="Texture2D" uid="uid://b6borv2gp1cn1" path="res://Assets/tilemap.png" id="2_eqhlw"]
 
@@ -51,6 +52,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5rnmx")
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_fmkaf")
 
 [node name="Player" parent="." instance=ExtResource("1_hfe7p")]
 position = Vector2(446, 207)
