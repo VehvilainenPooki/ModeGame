@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6borv2gp1cn1"
-path="res://.godot/imported/tilemap.png-fbb7d040985d294f094a5740961103d2.ctex"
+uid="uid://cycq3u8djsjeh"
+path="res://.godot/imported/Laboratory1_1FullSheet.png-9f55ea4ef0420d72c9a4a83c7cfff467.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tilemap.png"
-dest_files=["res://.godot/imported/tilemap.png-fbb7d040985d294f094a5740961103d2.ctex"]
+source_file="res://Assets/World/Lab1/Laboratory1_1FullSheet.png"
+dest_files=["res://.godot/imported/Laboratory1_1FullSheet.png-9f55ea4ef0420d72c9a4a83c7cfff467.ctex"]
 
 [params]
 
