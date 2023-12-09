@@ -4,22 +4,15 @@ class_name Player
 var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
 
-<<<<<<< HEAD
 # Eri modet enumina
 enum MODES {DEFAULT, JUMP, PUSH, SPEED}
 var mode: MODES = MODES.DEFAULT
 
 # Kasettien määrät
 var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 0, MODES.SPEED: 1}
-=======
-const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
->>>>>>> origin/newAssets
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var animation = get_node("AnimationPlayer")
-@onready var sprite = get_node("AnimatedSprite2D")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -35,15 +28,10 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction == 1:
 		velocity.x = direction * SPEED
-		sprite.flip_h = false
-		animation.play("Walk")
 	elif direction == -1:
 		velocity.x = direction * SPEED
-		sprite.flip_h = true
-		animation.play("Walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animation.play("Idle")
 	
 
 	move_and_slide()

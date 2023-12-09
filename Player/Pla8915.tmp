@@ -1,63 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwodsiytl05fq"]
+[gd_scene load_steps=5 format=3 uid="uid://cwodsiytl05fq"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_52f5x"]
 [ext_resource type="Texture2D" uid="uid://dpdrqwfkccor2" path="res://Assets/Player/PlayerSeparation.png" id="2_gkagf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xrkb"]
 radius = 24.0
-height = 144.0
+height = 148.0
 
-[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_mfik0"]
-target_nodepath = NodePath("../leftArmTarget")
-flip_bend_direction = true
-joint_one_bone_idx = 2
-joint_one_bone2d_node = NodePath("Hip/Torso/leftShoulder")
-joint_two_bone_idx = 3
-joint_two_bone2d_node = NodePath("Hip/Torso/leftShoulder/leftLowerarm")
-
-[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_fi2c1"]
-target_nodepath = NodePath("../rightArmTarget")
-flip_bend_direction = true
-joint_one_bone_idx = 5
-joint_one_bone2d_node = NodePath("Hip/Torso/rightShoulder")
-joint_two_bone_idx = 6
-joint_two_bone2d_node = NodePath("Hip/Torso/rightShoulder/rightLowerarm")
-
-[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_i2wew"]
-target_nodepath = NodePath("../leftlegTarget")
-joint_one_bone_idx = 8
-joint_one_bone2d_node = NodePath("Hip/leftUpperleg")
-joint_two_bone_idx = 9
-joint_two_bone2d_node = NodePath("Hip/leftUpperleg/leftLowerleg")
-
-[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_qhodo"]
-target_nodepath = NodePath("../rightLegTarget")
-joint_one_bone_idx = 11
-joint_one_bone2d_node = NodePath("Hip/rightUpperleg")
-joint_two_bone_idx = 12
-joint_two_bone2d_node = NodePath("Hip/rightUpperleg/rightLowerleg")
-
-[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_2gkbt"]
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_bmknd"]
 enabled = true
-modification_count = 4
-modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_mfik0")
-modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_fi2c1")
-modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_i2wew")
-modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_qhodo")
-
-[sub_resource type="Animation" id="Animation_ijoiu"]
-resource_name = "idle"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8b80"]
-_data = {
-"idle": SubResource("Animation_ijoiu")
-}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_52f5x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 12)
+position = Vector2(0, 11)
 shape = SubResource("CapsuleShape2D_4xrkb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -65,8 +22,7 @@ shape = SubResource("CapsuleShape2D_4xrkb")
 [node name="Polygons" type="Node2D" parent="."]
 
 [node name="rightHandClosed" type="Polygon2D" parent="Polygons"]
-position = Vector2(25, 9)
-offset = Vector2(-219, -137)
+position = Vector2(-61.3283, -54.2256)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(212.237, 134.917, 226.156, 135, 225.742, 151.238, 212.32, 151.238)
@@ -74,8 +30,7 @@ uv = PackedVector2Array(212.237, 134.917, 226.156, 135, 225.742, 151.238, 212.32
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(1, 1, 1, 1), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0)]
 
 [node name="rightHandOpen" type="Polygon2D" parent="Polygons"]
-position = Vector2(25, 9)
-offset = Vector2(-201.328, -139.226)
+position = Vector2(-43.3283, -54.2256)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(194.347, 136.252, 208.266, 136.335, 207.851, 152.573, 194.43, 152.573)
@@ -83,8 +38,7 @@ uv = PackedVector2Array(194.347, 136.252, 208.266, 136.335, 207.851, 152.573, 19
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(1, 1, 1, 1), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0)]
 
 [node name="rightShoulder" type="Polygon2D" parent="Polygons"]
-position = Vector2(24, -46)
-offset = Vector2(-223.328, -33.2256)
+position = Vector2(-66.3283, -3.22563)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(220.719, 19.5132, 211.232, 26.2903, 211.683, 43.9108, 213.114, 53.1729, 215.147, 64.3174, 226.518, 64.3927, 231.713, 57.465, 233.596, 35.7783, 232.316, 24.4831)
@@ -92,8 +46,7 @@ uv = PackedVector2Array(220.719, 19.5132, 211.232, 26.2903, 211.683, 43.9108, 21
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="rightArm" type="Polygon2D" parent="Polygons"]
-position = Vector2(23, -17)
-offset = Vector2(-209.328, -105.226)
+position = Vector2(-53.3283, -46.2256)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(208.779, 94.4054, 200.3, 98.9773, 199.968, 115.021, 204.457, 126.991, 206.867, 133.973, 214.764, 134.223, 218.172, 127.988, 218.837, 113.358, 218.089, 98.8942)
@@ -101,8 +54,7 @@ uv = PackedVector2Array(208.779, 94.4054, 200.3, 98.9773, 199.968, 115.021, 204.
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="rightUpperleg" type="Polygon2D" parent="Polygons"]
-position = Vector2(10, 3)
-offset = Vector2(-150.741, -142.012)
+position = Vector2(-7.74054, -63.012)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(149.248, 128.786, 137.412, 134.804, 137.813, 145.838, 141.224, 159.579, 145.637, 184.052, 153.159, 183.952, 159.679, 170.512, 163.992, 149.047, 161.685, 133.099)
@@ -110,8 +62,7 @@ uv = PackedVector2Array(149.248, 128.786, 137.412, 134.804, 137.813, 145.838, 14
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="rightLowerleg" type="Polygon2D" parent="Polygons"]
-position = Vector2(10, 43)
-offset = Vector2(-149.741, -194.012)
+position = Vector2(-6.74054, -75.012)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(149.544, 184.093, 140.099, 185.75, 140.099, 199.503, 145.236, 214.416, 145.65, 230.157, 154.764, 229.992, 156.338, 220.05, 159.155, 205.8, 158.824, 186.33)
@@ -119,8 +70,7 @@ uv = PackedVector2Array(149.544, 184.093, 140.099, 185.75, 140.099, 199.503, 145
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="rightFoot" type="Polygon2D" parent="Polygons"]
-position = Vector2(11, 78)
-offset = Vector2(-150.741, -237.012)
+position = Vector2(-6.74054, -83.012)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(153.125, 230.602, 157.875, 234.852, 167.813, 237.415, 168.063, 245.04, 140.188, 245.04, 140.188, 236.977, 146.563, 230.727)
@@ -128,8 +78,7 @@ uv = PackedVector2Array(153.125, 230.602, 157.875, 234.852, 167.813, 237.415, 16
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1)]
 
 [node name="torso" type="Polygon2D" parent="Polygons"]
-position = Vector2(-1, -45)
-offset = Vector2(-131.328, -39.2256)
+position = Vector2(0.671692, -8.22563)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(132.176, 23.8985, 99.0654, 20.8278, 99.1989, 45.9279, 113.618, 57.4099, 113.485, 76.1015, 149.266, 76.3685, 149.399, 56.4753, 162.617, 46.8625, 162.75, 19.2256)
@@ -137,8 +86,7 @@ uv = PackedVector2Array(132.176, 23.8985, 99.0654, 20.8278, 99.1989, 45.9279, 11
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="hips" type="Polygon2D" parent="Polygons"]
-position = Vector2(0, -2)
-offset = Vector2(-132.328, -100.226)
+position = Vector2(0.671692, -26.2256)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(132.665, 81.3436, 119.78, 81.4537, 111.079, 88.5022, 110.198, 100.617, 124.846, 116.916, 139.604, 117.026, 153.59, 100.947, 153.37, 90.0441, 144.559, 81.5639)
@@ -146,8 +94,7 @@ uv = PackedVector2Array(132.665, 81.3436, 119.78, 81.4537, 111.079, 88.5022, 110
 bones = ["Hip", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="leftUpperleg" type="Polygon2D" parent="Polygons"]
-position = Vector2(-13, 3)
-offset = Vector2(-96.7535, -142.012)
+position = Vector2(23.2465, -63.012)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(96.2607, 128.786, 84.4252, 134.804, 84.8264, 145.838, 88.2366, 159.579, 92.6499, 184.052, 100.172, 183.952, 106.692, 170.512, 111.005, 149.047, 108.698, 133.099)
@@ -155,8 +102,7 @@ uv = PackedVector2Array(96.2607, 128.786, 84.4252, 134.804, 84.8264, 145.838, 88
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="leftLowerleg" type="Polygon2D" parent="Polygons"]
-position = Vector2(-13, 43)
-offset = Vector2(-96.7535, -194.012)
+position = Vector2(23.2465, -75.012)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(96.5573, 183.833, 87.1124, 185.49, 87.1124, 199.243, 92.2491, 214.156, 92.6634, 229.898, 101.777, 229.732, 103.351, 219.79, 106.168, 205.54, 105.837, 186.07)
@@ -164,8 +110,7 @@ uv = PackedVector2Array(96.5573, 183.833, 87.1124, 185.49, 87.1124, 199.243, 92.
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="leftFoot" type="Polygon2D" parent="Polygons"]
-position = Vector2(-12, 78)
-offset = Vector2(-97.7535, -237.012)
+position = Vector2(23.2465, -83.012)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(100.398, 231.122, 105.148, 235.372, 115.085, 237.934, 115.335, 245.559, 87.4602, 245.559, 87.4602, 237.497, 93.8352, 231.247)
@@ -173,8 +118,7 @@ uv = PackedVector2Array(100.398, 231.122, 105.148, 235.372, 115.085, 237.934, 11
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
 
 [node name="leftShoulder" type="Polygon2D" parent="Polygons"]
-position = Vector2(-22, -49)
-offset = Vector2(-50, -29)
+position = Vector2(60.6717, -1.22563)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(47.8163, 18.2229, 38.3283, 25, 38.7801, 42.6205, 40.2108, 51.8825, 42.244, 63.0271, 53.6145, 63.1024, 58.8102, 56.1747, 60.6928, 34.488, 59.4127, 23.1928)
@@ -182,8 +126,7 @@ uv = PackedVector2Array(47.8163, 18.2229, 38.3283, 25, 38.7801, 42.6205, 40.2108
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="leftArm" type="Polygon2D" parent="Polygons"]
-position = Vector2(-23, -16)
-offset = Vector2(-36, -103)
+position = Vector2(73.6717, -44.2256)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(35.6609, 92.685, 27.182, 97.2569, 26.8495, 113.3, 31.3383, 125.27, 33.749, 132.253, 41.6459, 132.502, 45.054, 126.268, 45.719, 111.638, 44.9709, 97.1737)
@@ -191,17 +134,15 @@ uv = PackedVector2Array(35.6609, 92.685, 27.182, 97.2569, 26.8495, 113.3, 31.338
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="leftHandOpen" type="Polygon2D" parent="Polygons"]
-position = Vector2(-21, 10)
-offset = Vector2(-28.3283, -138.226)
+position = Vector2(83.6717, -52.2256)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(21.1268, 135.46, 35.0456, 135.543, 34.6313, 151.781, 21.2096, 151.781)
 uv = PackedVector2Array(21.1268, 135.46, 35.0456, 135.543, 34.6313, 151.781, 21.2096, 151.781)
-bones = ["Hip", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/leftHand", PackedFloat32Array(1, 1, 1, 1), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0)]
+bones = ["Hip", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/Bone2D", PackedFloat32Array(1, 1, 1, 1), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0)]
 
 [node name="leftHandClosed" type="Polygon2D" parent="Polygons"]
-position = Vector2(-21, 10)
-offset = Vector2(-46.3283, -138.226)
+position = Vector2(65.6717, -52.2256)
 texture = ExtResource("2_gkagf")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(38.9395, 134.383, 52.8583, 134.466, 52.4441, 150.704, 39.0224, 150.704)
@@ -209,12 +150,11 @@ uv = PackedVector2Array(38.9395, 134.383, 52.8583, 134.466, 52.4441, 150.704, 39
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/leftShoulder/leftLowerarm/leftHand", PackedFloat32Array(1, 1, 1, 1), "Hip/Torso/rightShoulder", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso/rightShoulder/rightLowerarm/rightHand", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg", PackedFloat32Array(0, 0, 0, 0), "Hip/leftUpperleg/leftLowerleg/leftFoot", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg", PackedFloat32Array(0, 0, 0, 0), "Hip/rightUpperleg/rightLowerleg/rightFoot", PackedFloat32Array(0, 0, 0, 0)]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
-visible = false
-modification_stack = SubResource("SkeletonModificationStack2D_2gkbt")
+modification_stack = SubResource("SkeletonModificationStack2D_bmknd")
 
 [node name="Hip" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(0, -2)
-rest = Transform2D(1, 0, 0, 1, 0, -2)
+rest = Transform2D(1, 0, 0, 1, 133, 74)
 
 [node name="Torso" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(-1, -43)
@@ -223,12 +163,10 @@ rest = Transform2D(1, 0, 0, 1, -1, -43)
 [node name="leftShoulder" type="Bone2D" parent="Skeleton2D/Hip/Torso"]
 position = Vector2(-22, -2)
 rest = Transform2D(1, 0, 0, 1, -22, -2)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="leftLowerarm" type="Bone2D" parent="Skeleton2D/Hip/Torso/leftShoulder"]
 position = Vector2(0, 31)
 rest = Transform2D(1, 0, 0, 1, 0, 31)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="leftHand" type="Bone2D" parent="Skeleton2D/Hip/Torso/leftShoulder/leftLowerarm"]
 position = Vector2(2, 26)
@@ -237,16 +175,12 @@ scale = Vector2(0.797923, 0.677395)
 rest = Transform2D(0.033038, 0.797239, -0.676814, 0.0280475, 2, 26)
 
 [node name="rightShoulder" type="Bone2D" parent="Skeleton2D/Hip/Torso"]
-position = Vector2(22, -2)
-rotation = -2.35789
-scale = Vector2(0.99995, 0.99995)
+position = Vector2(25, -1)
 rest = Transform2D(1, 0, 0, 1, 25, -1)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="rightLowerarm" type="Bone2D" parent="Skeleton2D/Hip/Torso/rightShoulder"]
 position = Vector2(-1, 29)
 rest = Transform2D(1, 0, 0, 1, -1, 29)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="rightHand" type="Bone2D" parent="Skeleton2D/Hip/Torso/rightShoulder/rightLowerarm"]
 position = Vector2(2, 26)
@@ -257,12 +191,10 @@ rest = Transform2D(0.042169, 1.02853, -0.666497, 0.027326, 2, 26)
 [node name="leftUpperleg" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(-13, 5)
 rest = Transform2D(1, 0, 0, 1, -13, 5)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="leftLowerleg" type="Bone2D" parent="Skeleton2D/Hip/leftUpperleg"]
 position = Vector2(0, 40)
 rest = Transform2D(1, 0, 0, 1, 0, 40)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="leftFoot" type="Bone2D" parent="Skeleton2D/Hip/leftUpperleg/leftLowerleg"]
 position = Vector2(1, 35)
@@ -271,30 +203,11 @@ rest = Transform2D(1, 0, 0, 1, 1, 35)
 [node name="rightUpperleg" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(10, 5)
 rest = Transform2D(1, 0, 0, 1, 10, 5)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="rightLowerleg" type="Bone2D" parent="Skeleton2D/Hip/rightUpperleg"]
 position = Vector2(0, 40)
 rest = Transform2D(1, 0, 0, 1, 0, 40)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="rightFoot" type="Bone2D" parent="Skeleton2D/Hip/rightUpperleg/rightLowerleg"]
 position = Vector2(1, 35)
 rest = Transform2D(1, 0, 0, 1, 1, 35)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_k8b80")
-}
-
-[node name="leftArmTarget" type="Node2D" parent="."]
-position = Vector2(-64, -23)
-
-[node name="rightArmTarget" type="Node2D" parent="."]
-position = Vector2(34, -98)
-
-[node name="leftlegTarget" type="Node2D" parent="."]
-position = Vector2(-83, 85)
-
-[node name="rightLegTarget" type="Node2D" parent="."]
-position = Vector2(34, 29)
