@@ -4,17 +4,14 @@ class_name Player
 var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
 
-<<<<<<< HEAD
+
 # Eri modet enumina
 enum MODES {DEFAULT, JUMP, PUSH, SPEED}
 var mode: MODES = MODES.DEFAULT
 
 # Kasettien määrät
 var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 0, MODES.SPEED: 1}
-=======
-const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
->>>>>>> origin/newAssets
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

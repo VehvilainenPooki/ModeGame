@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc1ju7beuva6v"]
+[gd_scene load_steps=6 format=3 uid="uid://cc1ju7beuva6v"]
 
+[ext_resource type="Script" path="res://Levels/Level1.gd" id="1_4l0r6"]
 [ext_resource type="PackedScene" uid="uid://cwodsiytl05fq" path="res://Player/Player.tscn" id="1_hfe7p"]
 [ext_resource type="Texture2D" uid="uid://cycq3u8djsjeh" path="res://Assets/World/Lab1/Laboratory1_1FullSheet.png" id="2_v6msj"]
 
@@ -241,6 +242,7 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_racw3")
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_4l0r6")
 
 [node name="Player" parent="." instance=ExtResource("1_hfe7p")]
 position = Vector2(446, 207)

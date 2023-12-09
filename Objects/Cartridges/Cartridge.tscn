@@ -18,7 +18,6 @@ scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_eykvg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_87anx")
 
 [node name="Area2D" type="Area2D" parent="."]
