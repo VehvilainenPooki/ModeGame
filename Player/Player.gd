@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal cartridgeSig
+
 var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
 
@@ -47,10 +49,10 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("MODE_JUMP") && cartridges_dict[MODES.JUMP] > 0:
-		cartridges_dict[MODES.JUMP] = cartridges_dict[MODES.JUMP] - 1
+		removeCartridge(MODES.JUMP)
 		changeMode(MODES.JUMP)
 	elif event.is_action_pressed("MODE_SPEED") && cartridges_dict[MODES.SPEED] > 0:
-		cartridges_dict[MODES.SPEED] = cartridges_dict[MODES.SPEED] - 1
+		removeCartridge(MODES.SPEED)
 		changeMode(MODES.SPEED)
 
 func changeMode(mode: MODES):
@@ -74,3 +76,8 @@ func changeMode(mode: MODES):
 
 func addCartridge(mode: MODES):
 	cartridges_dict[mode] = cartridges_dict[mode] + 1
+	cartridgeSig.emit()
+	
+func removeCartridge(mode: MODES):
+	cartridges_dict[mode] = cartridges_dict[mode] - 1
+	cartridgeSig.emit()
