@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7xraoaqw8v8s"]
+
+[ext_resource type="Script" path="res://Objects/Crate/Crate.gd" id="1_ll01p"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6nm75"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2jrf"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyhwk"]
+size = Vector2(54, 52)
+
+[node name="Crate" type="RigidBody2D"]
+script = ExtResource("1_ll01p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(48, 48)
+texture = SubResource("PlaceholderTexture2D_6nm75")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v2jrf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cyhwk")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

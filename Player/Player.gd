@@ -5,6 +5,7 @@ signal cartridgeSig
 
 var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
+var pushing = false
 
 
 # Eri modet enumina
@@ -12,7 +13,7 @@ enum MODES {DEFAULT, JUMP, PUSH, SPEED}
 var mode: MODES = MODES.DEFAULT
 
 # Kasettien määrät
-var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 0, MODES.SPEED: 1}
+var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 1, MODES.SPEED: 1}
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -54,6 +55,9 @@ func _input(event):
 	elif event.is_action_pressed("MODE_SPEED") && cartridges_dict[MODES.SPEED] > 0:
 		removeCartridge(MODES.SPEED)
 		changeMode(MODES.SPEED)
+	elif event.is_action_pressed("MODE_PUSH") && cartridges_dict[MODES.PUSH] > 0:
+		removeCartridge(MODES.PUSH)
+		changeMode(MODES.PUSH)
 
 func changeMode(mode: MODES):
 	match mode:
@@ -61,14 +65,22 @@ func changeMode(mode: MODES):
 			mode = MODES.DEFAULT
 			SPEED = 300.0
 			JUMP_VELOCITY = -400.0
+			pushing = false
 		MODES.JUMP:
 			mode = MODES.JUMP
 			SPEED = 300.0
 			JUMP_VELOCITY = -800.0
+			pushing = false
 		MODES.SPEED:
 			mode = MODES.SPEED
 			SPEED = 600.0
 			JUMP_VELOCITY = -400.0
+			pushing = false
+		MODES.PUSH:
+			mode = MODES.PUSH
+			SPEED = 300.0
+			JUMP_VELOCITY = -400.0
+			pushing = true
 		_:
 			mode = MODES.DEFAULT
 			SPEED = 300.0

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc1ju7beuva6v"]
+[gd_scene load_steps=9 format=3 uid="uid://cc1ju7beuva6v"]
 
 [ext_resource type="Script" path="res://Levels/Level1.gd" id="1_4l0r6"]
 [ext_resource type="PackedScene" uid="uid://cwodsiytl05fq" path="res://Player/Player.tscn" id="1_hfe7p"]
 [ext_resource type="Texture2D" uid="uid://cycq3u8djsjeh" path="res://Assets/World/Lab1/Laboratory1_1FullSheet.png" id="2_v6msj"]
 [ext_resource type="PackedScene" uid="uid://cq7x60hccgp6l" path="res://Objects/Cartridges/Cartridge.tscn" id="4_8hcgt"]
 [ext_resource type="PackedScene" uid="uid://btrsok1jmua1q" path="res://Player/ToolBar.tscn" id="5_pubs2"]
+[ext_resource type="PackedScene" uid="uid://c7xraoaqw8v8s" path="res://Objects/Crate/Crate.tscn" id="6_3cecp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_racw3"]
 texture = ExtResource("2_v6msj")
@@ -264,3 +265,6 @@ mode = 1
 
 [node name="ToolBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_pubs2")]
 player = NodePath("../Player")
+
+[node name="Crate" parent="." instance=ExtResource("6_3cecp")]
+position = Vector2(1064, 402)
