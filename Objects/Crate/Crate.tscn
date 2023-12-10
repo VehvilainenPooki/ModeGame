@@ -1,24 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7xraoaqw8v8s"]
+[gd_scene load_steps=6 format=3 uid="uid://c7xraoaqw8v8s"]
 
 [ext_resource type="Script" path="res://Objects/Crate/Crate.gd" id="1_ll01p"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t2smd"]
+friction = 0.5
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6nm75"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2jrf"]
-size = Vector2(48, 48)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu62v"]
+size = Vector2(88, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyhwk"]
-size = Vector2(54, 52)
+size = Vector2(92, 92)
 
 [node name="Crate" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_t2smd")
 script = ExtResource("1_ll01p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(48, 48)
+scale = Vector2(88, 88)
 texture = SubResource("PlaceholderTexture2D_6nm75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_v2jrf")
+shape = SubResource("RectangleShape2D_hu62v")
 
 [node name="Area2D" type="Area2D" parent="."]
 
