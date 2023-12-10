@@ -27,10 +27,13 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction == 1:
+		$AnimationPlayer.play("run")
 		velocity.x = direction * SPEED
 	elif direction == -1:
+		$AnimationPlayer.play("run")
 		velocity.x = direction * SPEED
 	else:
+		$AnimationPlayer.play("idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 
