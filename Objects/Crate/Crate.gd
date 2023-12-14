@@ -14,16 +14,17 @@ func _on_area_2d_body_entered(body):
 		player = body
 		moving = true
 		$".".apply_impulse(Vector2(0,0))
-		print(moving)
+		#print(moving)
 
 func _on_area_2d_body_exited(body):
 	if body is Player:
 		moving = false
-		print(moving)
+		#print(moving)
 
 
 func _integrate_forces(state):
 	if moving:
-		print("jou")
-		state.apply_central_force(Vector2(1000,-10))
+		#print("jou")
+		#state.apply_central_force(Vector2(1000,-10))
+		pass
 

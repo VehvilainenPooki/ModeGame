@@ -6,6 +6,7 @@ signal cartridgeSig
 var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
 var pushing = false
+var crate: Crate = null
 
 
 # Eri modet enumina
@@ -37,10 +38,12 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 		sprite.flip_h = false
 		animation.play("Walk")
+		$Area2D/CollisionShape2D.position = Vector2(8,0)
 	elif direction == -1:
 		velocity.x = direction * SPEED
 		sprite.flip_h = true
 		animation.play("Walk")
+		$Area2D/CollisionShape2D.position = Vector2(-8,0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animation.play("Idle")
@@ -55,9 +58,17 @@ func _input(event):
 	elif event.is_action_pressed("MODE_SPEED") && cartridges_dict[MODES.SPEED] > 0:
 		removeCartridge(MODES.SPEED)
 		changeMode(MODES.SPEED)
+		print(mode)
 	elif event.is_action_pressed("MODE_PUSH") && cartridges_dict[MODES.PUSH] > 0:
 		removeCartridge(MODES.PUSH)
 		changeMode(MODES.PUSH)
+		print(mode)
+	elif event.is_action_pressed("Interact") && crate != null:
+		print("Painettu")
+		_grab_crate()
+	elif event.is_action_released("Interact"):
+		print("Päästetty")
+		_release_crate()
 
 func changeMode(mode: MODES):
 	match mode:
@@ -78,6 +89,7 @@ func changeMode(mode: MODES):
 			pushing = false
 		MODES.PUSH:
 			mode = MODES.PUSH
+			print("Modehan on siis " , mode)
 			SPEED = 300.0
 			JUMP_VELOCITY = -400.0
 			pushing = true
@@ -93,3 +105,23 @@ func addCartridge(mode: MODES):
 func removeCartridge(mode: MODES):
 	cartridges_dict[mode] = cartridges_dict[mode] - 1
 	cartridgeSig.emit()
+
+func _on_area_2d_body_entered(body):
+	if body is Crate:
+		print("LAATIKKO HAVAITTU")
+		crate = body
+
+func _on_area_2d_body_exited(body):
+	if body is Crate:
+		crate = null
+
+func _grab_crate():
+	print("Napataan")
+	var cratepath = crate.get_path()
+	$PinJoint2D.set_node_a($".".get_path())
+	$PinJoint2D.set_node_b(cratepath)
+	
+func _release_crate():
+	print("Päästetään")
+	$PinJoint2D.set_node_a('')
+	$PinJoint2D.set_node_b('')
