@@ -28,9 +28,13 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction == 1:
 		$AnimationPlayer.play("run")
+		if Vector2(-1,1) == $rightAnimation.scale:
+			$rightAnimation.apply_scale(Vector2(-1,1))
 		velocity.x = direction * SPEED
 	elif direction == -1:
 		$AnimationPlayer.play("run")
+		if Vector2(-1,1) != $rightAnimation.scale:
+			$rightAnimation.apply_scale(Vector2(-1,1))
 		velocity.x = direction * SPEED
 	else:
 		$AnimationPlayer.play("idle")
