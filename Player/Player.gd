@@ -117,11 +117,15 @@ func _on_area_2d_body_exited(body):
 
 func _grab_crate():
 	print("Napataan")
+	SPEED = 150
+	JUMP_VELOCITY = -200.0
 	var cratepath = crate.get_path()
 	$PinJoint2D.set_node_a($".".get_path())
 	$PinJoint2D.set_node_b(cratepath)
 	
 func _release_crate():
 	print("Päästetään")
+	SPEED = 300.0
+	JUMP_VELOCITY = -400.0
 	$PinJoint2D.set_node_a('')
 	$PinJoint2D.set_node_b('')
