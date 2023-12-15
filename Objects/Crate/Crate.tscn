@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7xraoaqw8v8s"]
+[gd_scene load_steps=6 format=3 uid="uid://c7xraoaqw8v8s"]
 
 [ext_resource type="Script" path="res://Objects/Crate/Crate.gd" id="1_ll01p"]
 [ext_resource type="Texture2D" uid="uid://noom155rvmp1" path="res://Assets/Box.png" id="2_v5jej"]
@@ -7,8 +7,11 @@
 friction = 0.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_htsg4"]
-radius = 44.0
-height = 88.0
+radius = 94.0
+height = 188.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g02uv"]
+size = Vector2(188, 94)
 
 [node name="Crate" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_t2smd")
@@ -16,8 +19,12 @@ lock_rotation = true
 script = ExtResource("1_ll01p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.375, 1.375)
+scale = Vector2(2.9375, 2.9375)
 texture = ExtResource("2_v5jej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_htsg4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -47)
+shape = SubResource("RectangleShape2D_g02uv")

@@ -3,8 +3,8 @@ class_name Player
 
 signal cartridgeSig
 
-var SPEED = 300.0
-var JUMP_VELOCITY = -400.0
+var SPEED = 500.0
+var JUMP_VELOCITY = -650.0
 var pushing = true
 var crate: Crate = null
 var push_force = 80
@@ -14,7 +14,7 @@ enum MODES {DEFAULT, JUMP, PUSH, SPEED}
 var mode: MODES = MODES.DEFAULT
 
 # Kasettien määrät
-var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 1, MODES.SPEED: 1}
+var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 0, MODES.SPEED: 0}
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -92,29 +92,29 @@ func changeMode(mode: MODES):
 	match mode:
 		MODES.DEFAULT:
 			mode = MODES.DEFAULT
-			SPEED = 300.0
-			JUMP_VELOCITY = -400.0
+			SPEED = 500.0
+			JUMP_VELOCITY = -650.0
 			pushing = false
 		MODES.JUMP:
 			mode = MODES.JUMP
-			SPEED = 300.0
-			JUMP_VELOCITY = -800.0
+			SPEED = 500.0
+			JUMP_VELOCITY = -1100.0
 			pushing = false
 		MODES.SPEED:
 			mode = MODES.SPEED
-			SPEED = 600.0
-			JUMP_VELOCITY = -400.0
+			SPEED = 800.0
+			JUMP_VELOCITY = -650.0
 			pushing = false
 		MODES.PUSH:
 			mode = MODES.PUSH
 			print("Modehan on siis " , mode)
-			SPEED = 300.0
-			JUMP_VELOCITY = -400.0
+			SPEED = 500.0
+			JUMP_VELOCITY = -650.0
 			pushing = true
 		_:
 			mode = MODES.DEFAULT
-			SPEED = 300.0
-			JUMP_VELOCITY = -400.0
+			SPEED = 500.0
+			JUMP_VELOCITY = -650.0
 
 func addCartridge(mode: MODES):
 	cartridges_dict[mode] = cartridges_dict[mode] + 1
@@ -145,8 +145,8 @@ func _grab_crate():
 	
 func _release_crate():
 	print("Päästetään")
-	SPEED = 300.0
-	JUMP_VELOCITY = -400.0
+	SPEED = 500.0
+	JUMP_VELOCITY = -650.0
 	pushing = false
 	#crate.set_lock_rotation(false)
 	$GrooveJoint2D.set_node_a('')
