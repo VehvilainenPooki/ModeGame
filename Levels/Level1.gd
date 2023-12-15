@@ -9,5 +9,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("Reset"):
+		$Player.queue_free()
+		await get_tree().create_timer(0.2).timeout
 		get_tree().reload_current_scene()
 

@@ -250,7 +250,7 @@ player = NodePath("Player")
 toolbar = NodePath("ToolBar")
 
 [node name="Player" parent="." instance=ExtResource("1_hfe7p")]
-position = Vector2(446, 207)
+position = Vector2(442, 322)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(446, 207)
@@ -267,7 +267,7 @@ mode = 1
 player = NodePath("../Player")
 
 [node name="Crate" parent="." instance=ExtResource("6_3cecp")]
-position = Vector2(654, 395)
+position = Vector2(641, 468)
 
 [node name="Crate2" parent="." instance=ExtResource("6_3cecp")]
-position = Vector2(338, 393)
+position = Vector2(251, 472)
