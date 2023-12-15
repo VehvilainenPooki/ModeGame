@@ -6,11 +6,13 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t2smd"]
 friction = 0.5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu62v"]
-size = Vector2(88, 88)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_htsg4"]
+radius = 44.0
+height = 88.0
 
 [node name="Crate" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_t2smd")
+lock_rotation = true
 script = ExtResource("1_ll01p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,4 +20,4 @@ scale = Vector2(1.375, 1.375)
 texture = ExtResource("2_v5jej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_hu62v")
+shape = SubResource("CapsuleShape2D_htsg4")

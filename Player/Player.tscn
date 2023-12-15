@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dpdrqwfkccor2" path="res://Assets/Player/PlayerSeparation.png" id="2_gkagf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xrkb"]
-radius = 24.0
+radius = 21.0
 height = 136.0
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_mfik0"]
@@ -757,7 +757,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifa3r"]
-size = Vector2(44, 4)
+size = Vector2(49, 4)
 
 [sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_a3c7a"]
 bone_index = 10
@@ -851,18 +851,23 @@ libraries = {
 "": SubResource("AnimationLibrary_k8b80")
 }
 
-[node name="Camera2D2" type="Camera2D" parent="."]
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(8, 0)
+position = Vector2(8, 32)
 shape = SubResource("RectangleShape2D_ifa3r")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
+position = Vector2(-3, 33)
+rotation = -1.5708
+bias = 0.9
 disable_collision = false
+length = 9.0
+initial_offset = 5.0
 
 [node name="rightAnimation" type="Node2D" parent="."]
+visible = false
 
 [node name="Polygons" type="Node2D" parent="rightAnimation"]
 
@@ -1018,6 +1023,7 @@ rest = Transform2D(1, 0, 0, 1, 0, -2)
 auto_calculate_length_and_angle = false
 length = 43.0116
 bone_angle = -91.3322
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Torso" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip"]
 position = Vector2(-1, -43)
@@ -1032,6 +1038,7 @@ rest = Transform2D(1, 0, 0, 1, -22, -2)
 auto_calculate_length_and_angle = false
 length = 31.0
 bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="leftLowerarm" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/Torso/leftShoulder"]
 position = Vector2(0, 31)
@@ -1039,6 +1046,7 @@ rest = Transform2D(1, 0, 0, 1, 0, 31)
 auto_calculate_length_and_angle = false
 length = 26.0768
 bone_angle = 85.6013
+metadata/_local_pose_override_enabled_ = true
 
 [node name="leftHand" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/Torso/leftShoulder/leftLowerarm"]
 position = Vector2(2, 26)
@@ -1055,6 +1063,7 @@ rest = Transform2D(1, 0, 0, 1, 25, -1)
 auto_calculate_length_and_angle = false
 length = 29.0172
 bone_angle = 91.9749
+metadata/_local_pose_override_enabled_ = true
 
 [node name="rightLowerarm" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/Torso/rightShoulder"]
 position = Vector2(-1, 29)
@@ -1062,6 +1071,7 @@ rest = Transform2D(1, 0, 0, 1, -1, 29)
 auto_calculate_length_and_angle = false
 length = 26.0768
 bone_angle = 85.6013
+metadata/_local_pose_override_enabled_ = true
 
 [node name="rightHand" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/Torso/rightShoulder/rightLowerarm"]
 position = Vector2(2, 26)
@@ -1078,6 +1088,7 @@ rest = Transform2D(1, 0, 0, 1, -13, 5)
 auto_calculate_length_and_angle = false
 length = 40.0
 bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="leftLowerleg" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/leftUpperleg"]
 position = Vector2(0, 40)
@@ -1085,6 +1096,7 @@ rest = Transform2D(1, 0, 0, 1, 0, 40)
 auto_calculate_length_and_angle = false
 length = 35.0143
 bone_angle = 88.3634
+metadata/_local_pose_override_enabled_ = true
 
 [node name="leftFoot" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/leftUpperleg/leftLowerleg"]
 position = Vector2(1, 35)
@@ -1100,6 +1112,7 @@ rest = Transform2D(1, 0, 0, 1, 10, 5)
 auto_calculate_length_and_angle = false
 length = 40.0
 bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="rightLowerleg" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/rightUpperleg"]
 position = Vector2(0, 40)
@@ -1107,6 +1120,7 @@ rest = Transform2D(1, 0, 0, 1, 0, 40)
 auto_calculate_length_and_angle = false
 length = 35.0143
 bone_angle = 88.3634
+metadata/_local_pose_override_enabled_ = true
 
 [node name="rightFoot" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/rightUpperleg/rightLowerleg"]
 position = Vector2(1, 35)
@@ -1114,6 +1128,7 @@ rest = Transform2D(1, 0, 0, 1, 1, 35)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="leftArmTarget" type="Node2D" parent="rightAnimation"]
 position = Vector2(-30, 6)
@@ -1137,6 +1152,7 @@ position = Vector2(38, 78)
 position = Vector2(-12, -25)
 
 [node name="leftAnimation" type="Node2D" parent="."]
+visible = false
 
 [node name="Polygons" type="Node2D" parent="leftAnimation"]
 

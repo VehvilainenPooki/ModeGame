@@ -7,7 +7,7 @@ var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
 var pushing = true
 var crate: Crate = null
-
+var push_force = 80
 
 # Eri modet enumina
 enum MODES {DEFAULT, JUMP, PUSH, SPEED}
@@ -39,13 +39,14 @@ func _physics_process(delta):
 		$leftAnimation.hide()
 		$rightAnimation.show()
 		velocity.x = direction * SPEED
+		$Area2D/CollisionShape2D.position = Vector2(8,32)
 	elif direction == -1:
 		lastDirection = direction
 		$AnimationPlayer.play("inverse_run")
 		$rightAnimation.hide()
 		$leftAnimation.show()
 		velocity.x = direction * SPEED
-		$Area2D/CollisionShape2D.position = Vector2(-8,0)
+		$Area2D/CollisionShape2D.position = Vector2(-8,32)
 	else:
 		if lastDirection == 1:
 			$AnimationPlayer.play("idle")
@@ -56,7 +57,7 @@ func _physics_process(delta):
 			$rightAnimation.hide()
 			$leftAnimation.show()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$Area2D/CollisionShape2D.position = Vector2(8,0)
+		
 	
 
 	move_and_slide()
@@ -79,7 +80,8 @@ func _input(event):
 		removeCartridge(MODES.PUSH)
 		changeMode(MODES.PUSH)
 		print(mode)
-	elif event.is_action_pressed("Interact") && crate != null:
+	elif event.is_action_pressed("Interact") && crate != null && is_on_floor():
+		print(mode)
 		print("Painettu")
 		_grab_crate()
 	elif event.is_action_released("Interact"):
@@ -135,14 +137,17 @@ func _grab_crate():
 	print("Napataan")
 	SPEED = 150
 	JUMP_VELOCITY = -200.0
-	var cratepath = crate.get_path()
-	$PinJoint2D.set_node_a($".".get_path())
-	$PinJoint2D.set_node_b(cratepath)
 	pushing = true
+	#crate.set_lock_rotation(true)
+	var cratepath = crate.get_path()
+	$GrooveJoint2D.set_node_a($".".get_path())
+	$GrooveJoint2D.set_node_b(cratepath)
 	
 func _release_crate():
 	print("Päästetään")
 	SPEED = 300.0
 	JUMP_VELOCITY = -400.0
-	$PinJoint2D.set_node_a('')
-	$PinJoint2D.set_node_b('')
+	pushing = false
+	#crate.set_lock_rotation(false)
+	$GrooveJoint2D.set_node_a('')
+	$GrooveJoint2D.set_node_b('')
