@@ -1333,6 +1333,7 @@ rest = Transform2D(1, 0, 0, 1, 0, -2)
 auto_calculate_length_and_angle = false
 length = 43.0116
 bone_angle = -91.3322
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Torso" type="Bone2D" parent="leftAnimation/Skeleton2D/Hip"]
 position = Vector2(0, -43)
@@ -1349,6 +1350,7 @@ rest = Transform2D(0.984742, -0.173637, 0.173637, 0.984742, 22, -2)
 auto_calculate_length_and_angle = false
 length = 31.0
 bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="leftLowerarm" type="Bone2D" parent="leftAnimation/Skeleton2D/Hip/Torso/leftShoulder"]
 position = Vector2(0, 31)
@@ -1356,6 +1358,7 @@ rest = Transform2D(1, 0, 0, 1, 0, 31)
 auto_calculate_length_and_angle = false
 length = 26.0768
 bone_angle = 85.6013
+metadata/_local_pose_override_enabled_ = true
 
 [node name="leftHand" type="Bone2D" parent="leftAnimation/Skeleton2D/Hip/Torso/leftShoulder/leftLowerarm"]
 position = Vector2(-2, 26)
@@ -1372,6 +1375,7 @@ rest = Transform2D(1, 0, 0, 1, -25, -1)
 auto_calculate_length_and_angle = false
 length = 29.0172
 bone_angle = 91.9749
+metadata/_local_pose_override_enabled_ = true
 
 [node name="rightLowerarm" type="Bone2D" parent="leftAnimation/Skeleton2D/Hip/Torso/rightShoulder"]
 position = Vector2(-1, 29)
@@ -1379,6 +1383,7 @@ rest = Transform2D(1, 0, 0, 1, -1, 29)
 auto_calculate_length_and_angle = false
 length = 26.0768
 bone_angle = 85.6013
+metadata/_local_pose_override_enabled_ = true
 
 [node name="rightHand" type="Bone2D" parent="leftAnimation/Skeleton2D/Hip/Torso/rightShoulder/rightLowerarm"]
 position = Vector2(-2, 24)
@@ -1395,6 +1400,7 @@ rest = Transform2D(1, 0, 0, 1, 13, 5)
 auto_calculate_length_and_angle = false
 length = 40.0
 bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="leftLowerleg" type="Bone2D" parent="leftAnimation/Skeleton2D/Hip/leftUpperleg"]
 position = Vector2(0, 40)
@@ -1402,6 +1408,7 @@ rest = Transform2D(1, 0, 0, 1, 0, 40)
 auto_calculate_length_and_angle = false
 length = 35.0143
 bone_angle = 88.3634
+metadata/_local_pose_override_enabled_ = true
 
 [node name="leftFoot" type="Bone2D" parent="leftAnimation/Skeleton2D/Hip/leftUpperleg/leftLowerleg"]
 position = Vector2(-2, 35)
@@ -1409,6 +1416,7 @@ rest = Transform2D(1, 0, 0, 1, -2, 35)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -180.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="rightUpperleg" type="Bone2D" parent="leftAnimation/Skeleton2D/Hip"]
 position = Vector2(-10, 5)
@@ -1416,6 +1424,7 @@ rest = Transform2D(1, 0, 0, 1, -10, 5)
 auto_calculate_length_and_angle = false
 length = 40.0
 bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="rightLowerleg" type="Bone2D" parent="leftAnimation/Skeleton2D/Hip/rightUpperleg"]
 position = Vector2(0, 40)
@@ -1423,6 +1432,7 @@ rest = Transform2D(1, 0, 0, 1, 0, 40)
 auto_calculate_length_and_angle = false
 length = 35.0143
 bone_angle = 88.3634
+metadata/_local_pose_override_enabled_ = true
 
 [node name="rightFoot" type="Bone2D" parent="leftAnimation/Skeleton2D/Hip/rightUpperleg/rightLowerleg"]
 position = Vector2(-2, 35)
@@ -1430,6 +1440,7 @@ rest = Transform2D(1, 0, 0, 1, -2, 35)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -180.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="leftArmTarget" type="Node2D" parent="leftAnimation"]
 position = Vector2(22, -7)

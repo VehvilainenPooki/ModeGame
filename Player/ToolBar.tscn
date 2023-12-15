@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://btrsok1jmua1q"]
+[gd_scene load_steps=5 format=3 uid="uid://btrsok1jmua1q"]
 
 [ext_resource type="Script" path="res://Player/ToolBar.gd" id="1_775jv"]
 [ext_resource type="Texture2D" uid="uid://bxcjlo7a650v4" path="res://Assets/Cartridge/Cartridge.png" id="2_pkbps"]
+[ext_resource type="Texture2D" uid="uid://codse7l24glwk" path="res://Assets/Cartridge/SpeedCartridge.png" id="3_kl7wd"]
+[ext_resource type="Texture2D" uid="uid://b7taurkb7op61" path="res://Assets/Cartridge/PushCartridge.png" id="4_xaa7b"]
 
 [node name="ToolBar" type="CanvasLayer"]
 script = ExtResource("1_775jv")
@@ -40,27 +42,25 @@ layout_mode = 2
 texture = ExtResource("2_pkbps")
 
 [node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
-modulate = Color(0.905882, 0, 0.286275, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("2_pkbps")
+texture = ExtResource("3_kl7wd")
 
 [node name="TextureRect3" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
-modulate = Color(0, 0.0784314, 0.858824, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("2_pkbps")
+texture = ExtResource("4_xaa7b")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="Cartridges" type="Label" parent="Control/MarginContainer/VBoxContainer2/HBoxContainer"]
+[node name="Cartridges" type="Label" parent="Control/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

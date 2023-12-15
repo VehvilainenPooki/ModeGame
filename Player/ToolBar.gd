@@ -11,6 +11,6 @@ func _ready():
 
 
 func update_cartridges():
-	var template = "Jump %s Speed %s Push %s"
+	var template = "Jump %s   Speed %s   Push %s"
 	var realstring = template % [player.cartridges_dict[MODES.JUMP], player.cartridges_dict[MODES.SPEED], player.cartridges_dict[MODES.PUSH]]
 	cartridges.text = realstring
