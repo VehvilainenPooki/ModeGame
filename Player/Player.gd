@@ -14,6 +14,8 @@ var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 0, MODES.SPEED: 1}
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var lastDirection = 1
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -27,17 +29,26 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction == 1:
+		lastDirection = direction
 		$AnimationPlayer.play("run")
-		if Vector2(-1,1) == $rightAnimation.scale:
-			$rightAnimation.apply_scale(Vector2(-1,1))
+		$leftAnimation.hide()
+		$rightAnimation.show()
 		velocity.x = direction * SPEED
 	elif direction == -1:
-		$AnimationPlayer.play("run")
-		if Vector2(-1,1) != $rightAnimation.scale:
-			$rightAnimation.apply_scale(Vector2(-1,1))
+		lastDirection = direction
+		$AnimationPlayer.play("inverse_run")
+		$rightAnimation.hide()
+		$leftAnimation.show()
 		velocity.x = direction * SPEED
 	else:
-		$AnimationPlayer.play("idle")
+		if lastDirection == 1:
+			$AnimationPlayer.play("idle")
+			$leftAnimation.hide()
+			$rightAnimation.show()
+		else:
+			$AnimationPlayer.play("inverse_idle")
+			$rightAnimation.hide()
+			$leftAnimation.show()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 
