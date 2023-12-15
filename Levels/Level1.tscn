@@ -299,6 +299,20 @@ offset_bottom = -125.0
 text = "Speed Mode
 "
 
+[node name="Label13" type="Label" parent="."]
+offset_left = 228.0
+offset_top = 346.0
+offset_right = 383.0
+offset_bottom = 369.0
+text = "Esc Closes the game"
+
+[node name="Label14" type="Label" parent="."]
+offset_left = 16754.0
+offset_top = -4641.0
+offset_right = 16909.0
+offset_bottom = -4618.0
+text = "Esc Closes the game"
+
 [node name="Label11" type="Label" parent="."]
 offset_left = -108.0
 offset_top = -80.0

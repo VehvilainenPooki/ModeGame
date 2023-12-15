@@ -12,4 +12,5 @@ func _input(event):
 		$Player.queue_free()
 		await get_tree().create_timer(0.2).timeout
 		get_tree().reload_current_scene()
-
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
