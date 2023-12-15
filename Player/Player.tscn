@@ -173,6 +173,7 @@ position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_ifa3r")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
+disable_collision = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

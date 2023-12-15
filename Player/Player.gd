@@ -5,7 +5,7 @@ signal cartridgeSig
 
 var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
-var pushing = false
+var pushing = true
 var crate: Crate = null
 
 
@@ -50,6 +50,12 @@ func _physics_process(delta):
 	
 
 	move_and_slide()
+	
+	if pushing:
+		for i in get_slide_collision_count():
+			var c = get_slide_collision(i)
+			if c.get_collider() is Crate:
+				c.get_collider().apply_central_impulse(-c.get_normal() * 80)
 
 func _input(event):
 	if event.is_action_pressed("MODE_JUMP") && cartridges_dict[MODES.JUMP] > 0:
@@ -122,6 +128,7 @@ func _grab_crate():
 	var cratepath = crate.get_path()
 	$PinJoint2D.set_node_a($".".get_path())
 	$PinJoint2D.set_node_b(cratepath)
+	pushing = true
 	
 func _release_crate():
 	print("Päästetään")
