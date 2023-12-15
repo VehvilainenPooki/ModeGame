@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cwodsiytl05fq"]
+[gd_scene load_steps=28 format=3 uid="uid://cwodsiytl05fq"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_52f5x"]
 [ext_resource type="Texture2D" uid="uid://dpdrqwfkccor2" path="res://Assets/Player/PlayerSeparation.png" id="2_gkagf"]
@@ -756,6 +756,9 @@ _data = {
 "run": SubResource("Animation_jj0en")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifa3r"]
+size = Vector2(44, 4)
+
 [sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_a3c7a"]
 bone_index = 10
 bone2d_node = NodePath("Hip/leftUpperleg/leftLowerleg/leftFoot")
@@ -834,9 +837,6 @@ modifications/4 = SubResource("SkeletonModification2DLookAt_b8on6")
 modifications/5 = SubResource("SkeletonModification2DLookAt_vppur")
 modifications/6 = SubResource("SkeletonModification2DLookAt_g4iqq")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifa3r"]
-size = Vector2(44, 4)
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_52f5x")
 
@@ -851,7 +851,7 @@ libraries = {
 "": SubResource("AnimationLibrary_k8b80")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D2" type="Camera2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -861,9 +861,6 @@ shape = SubResource("RectangleShape2D_ifa3r")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 disable_collision = false
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 
 [node name="rightAnimation" type="Node2D" parent="."]
 
@@ -1017,13 +1014,10 @@ bones = ["Hip", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(
 modification_stack = SubResource("SkeletonModificationStack2D_2gkbt")
 
 [node name="Hip" type="Bone2D" parent="rightAnimation/Skeleton2D"]
-rotation = 0.0232512
-scale = Vector2(0.999971, 0.999971)
 rest = Transform2D(1, 0, 0, 1, 0, -2)
 auto_calculate_length_and_angle = false
 length = 43.0116
 bone_angle = -91.3322
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Torso" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip"]
 position = Vector2(-1, -43)
@@ -1038,7 +1032,6 @@ rest = Transform2D(1, 0, 0, 1, -22, -2)
 auto_calculate_length_and_angle = false
 length = 31.0
 bone_angle = 90.0
-metadata/_local_pose_override_enabled_ = true
 
 [node name="leftLowerarm" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/Torso/leftShoulder"]
 position = Vector2(0, 31)
@@ -1046,7 +1039,6 @@ rest = Transform2D(1, 0, 0, 1, 0, 31)
 auto_calculate_length_and_angle = false
 length = 26.0768
 bone_angle = 85.6013
-metadata/_local_pose_override_enabled_ = true
 
 [node name="leftHand" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/Torso/leftShoulder/leftLowerarm"]
 position = Vector2(2, 26)
@@ -1063,7 +1055,6 @@ rest = Transform2D(1, 0, 0, 1, 25, -1)
 auto_calculate_length_and_angle = false
 length = 29.0172
 bone_angle = 91.9749
-metadata/_local_pose_override_enabled_ = true
 
 [node name="rightLowerarm" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/Torso/rightShoulder"]
 position = Vector2(-1, 29)
@@ -1071,7 +1062,6 @@ rest = Transform2D(1, 0, 0, 1, -1, 29)
 auto_calculate_length_and_angle = false
 length = 26.0768
 bone_angle = 85.6013
-metadata/_local_pose_override_enabled_ = true
 
 [node name="rightHand" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/Torso/rightShoulder/rightLowerarm"]
 position = Vector2(2, 26)
@@ -1088,7 +1078,6 @@ rest = Transform2D(1, 0, 0, 1, -13, 5)
 auto_calculate_length_and_angle = false
 length = 40.0
 bone_angle = 90.0
-metadata/_local_pose_override_enabled_ = true
 
 [node name="leftLowerleg" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/leftUpperleg"]
 position = Vector2(0, 40)
@@ -1096,7 +1085,6 @@ rest = Transform2D(1, 0, 0, 1, 0, 40)
 auto_calculate_length_and_angle = false
 length = 35.0143
 bone_angle = 88.3634
-metadata/_local_pose_override_enabled_ = true
 
 [node name="leftFoot" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/leftUpperleg/leftLowerleg"]
 position = Vector2(1, 35)
@@ -1112,7 +1100,6 @@ rest = Transform2D(1, 0, 0, 1, 10, 5)
 auto_calculate_length_and_angle = false
 length = 40.0
 bone_angle = 90.0
-metadata/_local_pose_override_enabled_ = true
 
 [node name="rightLowerleg" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/rightUpperleg"]
 position = Vector2(0, 40)
@@ -1120,7 +1107,6 @@ rest = Transform2D(1, 0, 0, 1, 0, 40)
 auto_calculate_length_and_angle = false
 length = 35.0143
 bone_angle = 88.3634
-metadata/_local_pose_override_enabled_ = true
 
 [node name="rightFoot" type="Bone2D" parent="rightAnimation/Skeleton2D/Hip/rightUpperleg/rightLowerleg"]
 position = Vector2(1, 35)
@@ -1128,7 +1114,6 @@ rest = Transform2D(1, 0, 0, 1, 1, 35)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0
-metadata/_local_pose_override_enabled_ = true
 
 [node name="leftArmTarget" type="Node2D" parent="rightAnimation"]
 position = Vector2(-30, 6)
@@ -1323,7 +1308,6 @@ bones = ["Hip", PackedFloat32Array(0, 0, 0, 0), "Hip/Torso", PackedFloat32Array(
 modification_stack = SubResource("SkeletonModificationStack2D_vkhv4")
 
 [node name="Hip" type="Bone2D" parent="leftAnimation/Skeleton2D"]
-rotation = 0.470771
 rest = Transform2D(1, 0, 0, 1, 0, -2)
 auto_calculate_length_and_angle = false
 length = 43.0116
@@ -1457,3 +1441,6 @@ position = Vector2(-78, 53)
 
 [node name="hipTarget" type="Node2D" parent="leftAnimation"]
 position = Vector2(12, -25)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

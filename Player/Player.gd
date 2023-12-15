@@ -45,7 +45,7 @@ func _physics_process(delta):
 		$rightAnimation.hide()
 		$leftAnimation.show()
 		velocity.x = direction * SPEED
-		$Area2D/CollisionShape2D.position = Vector2(8,0)
+		$Area2D/CollisionShape2D.position = Vector2(-8,0)
 	else:
 		if lastDirection == 1:
 			$AnimationPlayer.play("idle")
@@ -56,7 +56,7 @@ func _physics_process(delta):
 			$rightAnimation.hide()
 			$leftAnimation.show()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$Area2D/CollisionShape2D.position = Vector2(-8,0)
+		$Area2D/CollisionShape2D.position = Vector2(8,0)
 	
 
 	move_and_slide()
