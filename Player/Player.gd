@@ -16,11 +16,10 @@ var mode: MODES = MODES.DEFAULT
 # Kasettien määrät
 var cartridges_dict = {MODES.JUMP: 0, MODES.PUSH: 1, MODES.SPEED: 1}
 
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var animation = get_node("AnimationPlayer")
-@onready var sprite = get_node("AnimatedSprite2D")
+
+var lastDirection = 1
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -35,18 +34,29 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction == 1:
+		lastDirection = direction
+		$AnimationPlayer.play("run")
+		$leftAnimation.hide()
+		$rightAnimation.show()
 		velocity.x = direction * SPEED
-		sprite.flip_h = false
-		animation.play("Walk")
-		$Area2D/CollisionShape2D.position = Vector2(8,0)
 	elif direction == -1:
+		lastDirection = direction
+		$AnimationPlayer.play("inverse_run")
+		$rightAnimation.hide()
+		$leftAnimation.show()
 		velocity.x = direction * SPEED
-		sprite.flip_h = true
-		animation.play("Walk")
-		$Area2D/CollisionShape2D.position = Vector2(-8,0)
+		$Area2D/CollisionShape2D.position = Vector2(8,0)
 	else:
+		if lastDirection == 1:
+			$AnimationPlayer.play("idle")
+			$leftAnimation.hide()
+			$rightAnimation.show()
+		else:
+			$AnimationPlayer.play("inverse_idle")
+			$rightAnimation.hide()
+			$leftAnimation.show()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animation.play("Idle")
+		$Area2D/CollisionShape2D.position = Vector2(-8,0)
 	
 
 	move_and_slide()
