@@ -5,9 +5,10 @@ signal cartridgeSig
 
 var SPEED = 500.0
 var JUMP_VELOCITY = -650.0
-var pushing = true
+var pushing = false
 var crate: Crate = null
 var push_force = 80
+var coyote = 0.1
 
 # Eri modet enumina
 enum MODES {DEFAULT, JUMP, PUSH, SPEED}
@@ -21,13 +22,18 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var lastDirection = 1
 
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+		coyote -= delta
+	
+	if is_on_floor():
+		coyote = 0.1
+	
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or coyote > 0):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -137,7 +143,7 @@ func _grab_crate():
 	print("Napataan")
 	SPEED = 150
 	JUMP_VELOCITY = -200.0
-	pushing = true
+	#pushing = true
 	#crate.set_lock_rotation(true)
 	var cratepath = crate.get_path()
 	$GrooveJoint2D.set_node_a($".".get_path())
@@ -147,7 +153,7 @@ func _release_crate():
 	print("Päästetään")
 	SPEED = 500.0
 	JUMP_VELOCITY = -650.0
-	pushing = false
+	#pushing = false
 	#crate.set_lock_rotation(false)
 	$GrooveJoint2D.set_node_a('')
 	$GrooveJoint2D.set_node_b('')
